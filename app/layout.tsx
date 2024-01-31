@@ -3,8 +3,14 @@ import './globals.css'
 import Menu from './components/menu/menu'
 
 import { Bellefair } from "next/font/google";
+import { Barlow_Condensed } from "next/font/google";
 
-const bellefair = Bellefair({
+export const barlowCondensed = Barlow_Condensed({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+export const bellefair = Bellefair({
   weight: "400",
   subsets: ["latin"],
 });
@@ -35,8 +41,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={bellefair.className}>
+        <div className='relative h-screen'>
         <Menu />
         {children}
+        </div>
       </body>
     </html>
   )

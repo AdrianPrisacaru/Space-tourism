@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primarySpaceColor: rgb(11, 13, 23);
-  --secondSpaceColor: rgb(208, 214, 249);
-  --whiteSpaceColor: rgb(255, 255, 255);
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

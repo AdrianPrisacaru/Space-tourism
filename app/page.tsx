@@ -11,7 +11,7 @@ export default function Home() {
   }
 
   return (
-    <main className="text-fullWhite flex min-h-screen flex-col items-center justify-between pl-10 pt-8 bg-cover bg-center h-screen sm:bg-mobile md:bg-tablet lg:bg-desktop">
+    <main className="text-white flex min-h-screen flex-col items-center justify-between pt-8 bg-cover bg-center h-screen sm:bg-mobile md:bg-tablet lg:bg-desktop">
       <HomeComponent title={homeInfo.title} subTitle={homeInfo.subTitle} text={homeInfo.text} buttonText={homeInfo.buttonText} />
     </main>
   )

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export default function Menu() {
     const menuList = [{
@@ -27,6 +28,8 @@ export default function Menu() {
 ''
     const [isMobileOn, setIsMobileOn] = useState(false)
     const menuRef = useRef<HTMLDivElement>(null);
+
+    const pathname = usePathname();
 
     const handleClickOutside = (event: any) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -54,9 +57,9 @@ export default function Menu() {
 
       <div className="absolute right-0 w-full h-full lg:max-w-4xl md:max-w-[550px] lg:flex md:flex sm:hidden justify-center items-center z-1">
         <div className='w-full h-full text-white flex justify-around bg-white bg-opacity-5 backdrop-blur-[40.7742px] lg:pl-20 lg:pr-6 md:pl-8 md:pr-8 uppercase'>
-          {menuList.map((item) =>                  
-                <Link key={'Mobile_' + item.id} href={item.link} passHref>
-                  <div className="font-barlowFont flex items-center w-full h-full gap-4 active:border-white hover:border-b-4 hover:border-gray-500">
+          {menuList.map((item) => 
+                <Link key={'Desktop_' + item.id} href={item.link} passHref>
+                  <div className={`font-barlowFont flex items-center w-full h-full gap-4  ${ pathname === item.link ? 'border-b-4 border-white' : 'hover:border-gray-500 hover:border-b-4'} `}>
                     <p className='lg:flex md:hidden tracking-[2.7px]'>{item.id}</p>
                     <p className="barlowCondensed tracking-[2.7px] lg:text-base md:text-sm">{item.name}</p>
                   </div>
@@ -78,7 +81,7 @@ export default function Menu() {
           <div ref={menuRef} className="flex flex-col pt-40 text-white w-full">
             {menuList.map((item) =>                  
               <Link key={'Mobile_' + item.id} href={item.link} passHref>
-                <div className="flex items-center w-full mb-6 pt-2 pl-6 pb-2 gap-4 border-r-2 active:border-white hover:border-gray-600">
+                <div className={`flex items-center w-full mb-6 pt-2 pl-6 pb-2 gap-4 ${ pathname === item.link ? 'border-r-2 border-white' : 'hover:border-gray-600 hover:border-r-2'}`}>
                   <p>{item.id}</p>
                   <p className="bellefair font-normal">{item.name}</p>
                 </div>
